@@ -1,28 +1,37 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
+/* General */
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+a {
+  color: royalblue;
+  text-decoration: none;
+}
+
 canvas {
   position: fixed;
   top: 0;
   left: 0;
 }
 
-
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
   --spacing: 350px;
 
-  font-family: brandon-grotesque, sans-serif;
+  font-family: Quicksand, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-
 main {
-  width: 100vw;
+  /* width: 100vw; */
   color: white;
   z-index: 99;
   position: absolute;
-  width: 100%;
   margin: 0px auto;
   padding: 120px 0px;
   
@@ -31,51 +40,142 @@ main {
 }
 
 h1, h2, h3, blockquote {
-  font-family: elevon, sans-serif;
+  font-family: 'Fredoka One', cursive;
   font-weight: 700;
   font-style: normal;
 }
-
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
 canvas {
   position: fixed;
   top: 0;
   left: 0;
 }
+header {
+  grid-column: 2 / span 4;
+  font-size: 1.8em;
+  padding: 2rem;
+  padding-left: 4rem;
+  border-radius: 5px;
+  margin-bottom: var(--spacing);
+}
+header p {
+  background-color: white;
+  color: #000;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
+}
+section {
+  grid-column: 2 / 8;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 4rem;
+  display: inline;
+  line-height: 1;
+}
+.left {
+  grid-column: 6 / 12;
+}
+.blank-50 {
+  height: 100px;
+  width: 100px;
+  grid-column: 2 / span 9;
+}
 
+/* Portfolio */
+.portfolio-thumbnail {
+  width: 130px;
+  border-radius: 4px;
+}
+.project p {
+  display: inline-block;
+  max-width: 70%;
+  margin-bottom: 0;
+}
+.project img {
+  display: inline-block;
+  float: right;
+  margin-top: 30px;
+}
+.project h3 {
+  margin-bottom: 0;
+}
 
+.gradient-text {
+  background-color: #CA4246;
+  
+   background-image: linear-gradient(
+        45deg,
+        #CA4246 16.666%, 
+        #E16541 16.666%, 
+        #E16541 33.333%, 
+        #F18F43 33.333%, 
+        #F18F43 50%, 
+        #8B9862 50%, 
+        #8B9862 66.666%, 
+        #476098 66.666%, 
+        #476098 83.333%, 
+        #A7489B 83.333%);
+  
+  background-size: 100%;
+  background-repeat: repeat;
 
-  header {
-    background: var(--dark-bg);
-    grid-column: 2 / span 5;
-    font-size: 2.5rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+}
+
+.gradient-text:hover{
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+@keyframes rainbow-text-simple-animation-rev {
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+@keyframes rainbow-text-simple-animation {
+    0% {
+        background-size: 100%;
+    }
+    80% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1025px) {
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
-
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: var(--dark-bg);
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote p {
-    color: black;
-    background-color: white;
-    font-size: 4rem;
-    display: inline;
-    line-height: 1;
-  }
-
-  .left {
-    grid-column: 6 / 12;
-  }
+}
