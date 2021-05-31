@@ -59,12 +59,12 @@ Array(200).fill().forEach(addStar)
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('./assets/bg.jpg')
+const spaceTexture = new THREE.TextureLoader().load('bg.jpg')
 scene.background = spaceTexture
 
 // Avatar
 
-const moTexture = new THREE.TextureLoader().load('./assets/mo.png')
+const moTexture = new THREE.TextureLoader().load('mo.png')
 
 const mo = new THREE.Mesh(
   new THREE.BoxGeometry(2.5, 2.5, 2.5),
